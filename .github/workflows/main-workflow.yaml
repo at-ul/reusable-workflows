@@ -19,4 +19,4 @@ jobs:
             echo "::set-output name=workflow_to_run::update-secret-workflow"
           fi
       - name: run selected workflow
-        uses: at-ul/reusable-workflows/.github/workflows/update-secret-workflow.yaml
+        uses: ./.github/workflows/update-secret/
