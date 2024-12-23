@@ -15,7 +15,7 @@ jobs:
       - name: Determine workflow to run
         id: determine_workflow
         run: |
-          if [[ "${{inputs.workflow_name}}" ]] == "update-secret-workflow" ]]; then
+          if [[ "${{inputs.workflow_name}}" == "update-secret-workflow" ]]; then
             echo "::set-output name=workflow_to_run::update-secret-workflow"
           fi
       - name: run selected workflow
