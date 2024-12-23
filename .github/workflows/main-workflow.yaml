@@ -1,0 +1,22 @@
+name: Main Key Rotation Workflow
+on: workflow_dispatch
+env:
+  VAULT_CLUSTER_URL: http://18.206.203.244:8200/
+  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY }}
+  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_KEY }}
+  AWS_DEFAULT_REGION: "us-east-1"
+  USER_NAME: "at-cli"
+jobs:
+  update-secret:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+      - name: Determine workflow to run
+        id: determine_workflow
+        run: |
+          if [[ "${{inputs.workflow_name}}" ]] == "update-secret-workflow" ]]; then
+            echo "::set-output name=workflow_to_run::update-secret-workflow"
+          fi
+      - name: run selected workflow
+        uses: ./.github/workflows/update-secret-workflow.yaml
