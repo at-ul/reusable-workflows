@@ -1,4 +1,4 @@
-name: Invalidate Secret Workflow
+name: Invalidate Old Token Workflow
 on:
   workflow_dispatch:
     inputs:

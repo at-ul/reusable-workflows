@@ -1,4 +1,4 @@
-name: Update Secret Workflow
+name: Create New Token Workflow
 on:
   workflow_call:
     inputs:
