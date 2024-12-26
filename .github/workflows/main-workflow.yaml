@@ -3,6 +3,8 @@ on: workflow_dispatch
 env:
   AWS_DEFAULT_REGION: "us-east-1"
   USER_NAME: "at-cli"
+  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY }}
+  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_KEY }}
 jobs:
   checkout-code:
     runs-on: ubuntu-24.04
