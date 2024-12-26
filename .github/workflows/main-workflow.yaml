@@ -12,5 +12,5 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
-      - name: run selected workflow
-        uses: ./.github/workflows/update-secret-workflow.yaml
+  execute-update-secret-workflow:
+    uses: ./.github/workflows/update-secret-workflow.yaml
