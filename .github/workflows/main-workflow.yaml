@@ -8,12 +8,12 @@ env:
   USER_NAME: "at-cli"
 jobs:
   checkout-code:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
   check-token-count:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     needs: checkout-code
     steps:
       - name: Check Token Count
