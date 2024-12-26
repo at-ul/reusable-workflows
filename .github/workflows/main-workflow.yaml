@@ -7,12 +7,24 @@ env:
   AWS_DEFAULT_REGION: "us-east-1"
   USER_NAME: "at-cli"
 jobs:
-  update-secret:
+  checkout-code:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
+  check-token-count:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Token Count
+        run: |
+          key_count=$(aws iam list-access-keys --user-name "${{ env.USER_NAME }}" \
+          --query 'length(AccessKeyMetadata[])' --output text)
+          if [[ "$key_count" == "2" ]]; then
+            echo "Error: Two active access keys found for application. Maximum of one active key is allowed. Please execute invalidate-secret-workflow to delete older key." >&2
+            exit 1
+          fi
   execute-update-secret-workflow:
+    needs: checkout-code
     uses: ./.github/workflows/update-secret-workflow.yaml
     secrets: inherit
   execute-invalidate-secret-workflow:
