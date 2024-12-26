@@ -33,7 +33,7 @@ jobs:
     uses: ./.github/workflows/invalidate-secret-workflow.yaml
     secrets: inherit
     with:
-      VAULT_CLUSTER_URL: ${{ env.VAULT_CLUSTER_URL }}
-      USER_NAME: ${{ env.USER_NAME }}
+      VAULT_CLUSTER_URL: http://18.206.203.244:8200/
+      USER_NAME: "at-cli"
     permissions:
       issues: write
