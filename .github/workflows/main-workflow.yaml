@@ -19,3 +19,5 @@ jobs:
     needs: execute-update-secret-workflow
     uses: ./.github/workflows/invalidate-secret-workflow.yaml
     secrets: inherit
+    permissions:
+      issues: write
