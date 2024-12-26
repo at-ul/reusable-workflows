@@ -14,3 +14,4 @@ jobs:
         uses: actions/checkout@v3
   execute-update-secret-workflow:
     uses: ./.github/workflows/update-secret-workflow.yaml
+    secrets: inherit
