@@ -17,5 +17,5 @@ jobs:
     secrets: inherit
   execute-invalidate-secret-workflow:
     needs: execute-update-secret-workflow
-    uses: ./.github/workflow/invalidate-secret-workflow.yaml
+    uses: ./.github/workflows/invalidate-secret-workflow.yaml
     secrets: inherit
