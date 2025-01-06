@@ -41,23 +41,17 @@ jobs:
       - name: List Value
         run: |
          (($USER_NAME=="atul")); echo $?
+         export $JSON_PAYLOAD
          echo "JSON_PAYLOAD={
          \"key1\" : \"${{ inputs.USER_NAME }}\",
          \"key2\" : \"${{ inputs.VAULT_CLUSTER_URL }}\",
          \"key3\" : \"$USER_NAME\" }"
+         
 
-         generate_post_data() 
-         {
-         cat <<EOF
-         {
-          "key1":"$USER_NAME"
-         }
-         EOF
-         }
       - name: Create new token
         run: |
           aws iam create-access-key --user-name "${{ inputs.USER_NAME }}" --output text >> output.txt
-          "$(generate_post_data)"
+          echo $JSON_PAYLOAD
       - name: Write token to vault
         run: |
           wget -O - https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
