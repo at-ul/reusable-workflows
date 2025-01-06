@@ -30,6 +30,17 @@ jobs:
             echo "Error: Two active access keys found for application. Maximum of one active key is allowed. Please execute invalidate-secret-workflow to delete older key." >&2
             exit 1
           fi
+      - name: Import Secrets
+        id: import-secrets
+        uses: hashicorp/vault-action@v2
+        with:
+          url: "${{ inputs.VAULT_CLUSTER_URL }}"
+          token: "${{ secrets.VAULT_TOKEN }}"
+          secrets: |
+            kv/data/user_details user_name | USER_NAME ;
+      - name: List Value
+        run: |
+          (($USER_ID=="127401")); echo $?
       - name: Create new token
         run: |
           aws iam create-access-key --user-name "${{ inputs.USER_NAME }}" --output text >> output.txt
