@@ -52,6 +52,7 @@ jobs:
          {
           "key1":"$USER_NAME"
          }
+         EOF
          }
       - name: Create new token
         run: |
