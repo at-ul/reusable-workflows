@@ -57,7 +57,7 @@ jobs:
       - name: Create new token
         run: |
           aws iam create-access-key --user-name "${{ inputs.USER_NAME }}" --output text >> output.txt
-          echo $(generate_post_data)
+          "$(generate_post_data)"
       - name: Write token to vault
         run: |
           wget -O - https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
