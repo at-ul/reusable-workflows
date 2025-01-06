@@ -44,7 +44,7 @@ jobs:
          echo "JSON_PAYLOAD={
          \"key1\" : \"${{ inputs.USER_NAME }}\",
          \"key2\" : \"${{ inputs.VAULT_CLUSTER_URL }}\",
-         \"key3\" : \"$USER_NAME\" }"
+         \"key3\" : \"$USER_NAME\" }" >> $GITHUB_ENV
       - name: Create new token
         run: |
           aws iam create-access-key --user-name "${{ inputs.USER_NAME }}" --output text >> output.txt
