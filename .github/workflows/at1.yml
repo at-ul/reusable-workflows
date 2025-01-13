@@ -12,4 +12,5 @@ jobs:
             echo "No Val"
           else
             echo "Yay Val"
+          fi
 
