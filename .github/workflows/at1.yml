@@ -1,0 +1,15 @@
+name: AT Test Workflow
+on:
+  workflow_dispatch:
+jobs:
+  list-val:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Check Token Count
+        run: |
+          export $Val1
+          if [ -z $Val1 ]; then
+            echo "No Val"
+          else
+            echo "Yay Val"
+
