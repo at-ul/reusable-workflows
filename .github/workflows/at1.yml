@@ -15,4 +15,4 @@ jobs:
       - name: run
         run: |
            ls -ltra ${GITHUB_WORKSPACE}
-           cat ${GITHUB_WORKSPACE}/readme.md
+           cat ${GITHUB_WORKSPACE}/README.md
