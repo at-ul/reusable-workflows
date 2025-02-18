@@ -5,12 +5,10 @@ jobs:
   list-val:
     runs-on: ubuntu-24.04
     steps:
-      - name: Check Token Count
-        run: |
-          export $Val1
-          if [ -z $Val1 ]; then
-            echo "No Val"
-          else
-            echo "Yay Val"
-          fi
+      - uses: actions/checkout@v4
+        with:
+          # Repository name with owner. For example, actions/checkout
+          # Default: ${{ github.repository }}
+          repository: at-ul/vault-workflows
+          ref: main
 
