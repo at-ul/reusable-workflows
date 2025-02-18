@@ -12,3 +12,6 @@ jobs:
           repository: at-ul/vault-workflows
           ref: main
           token: ${{ secrets.GH_PAT }}
+      - name: run
+        run: |
+           ls -ltra ${GITHUB_WORKSPACE}
