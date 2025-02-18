@@ -11,4 +11,4 @@ jobs:
           # Default: ${{ github.repository }}
           repository: at-ul/vault-workflows
           ref: main
-
+          token: ${{ GH_PAT }}
