@@ -38,3 +38,17 @@ jobs:
         run: |
            ls -ltra ${GITHUB_WORKSPACE}/vault
            cat ${GITHUB_WORKSPACE}/vault/README.md
+  list-val3:
+    runs-on: ubuntu-24.04
+    needs: list-val
+    steps:
+
+      - name: download-artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: vault
+          path: vault
+      - name: run
+        run: |
+           ls -ltra ${GITHUB_WORKSPACE}/vault
+           cat ${GITHUB_WORKSPACE}/vault/README.md
