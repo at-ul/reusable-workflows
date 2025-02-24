@@ -18,17 +18,18 @@ jobs:
            ls -ltra ${GITHUB_WORKSPACE}/vault
            cat ${GITHUB_WORKSPACE}/vault/README.md
       - name: upload-artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           path: vault
 
 
   list-val2:
     runs-on: ubuntu-24.04
+    needs: list-val
     steps:
 
       - name: download-artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           path: vault
       - name: run
