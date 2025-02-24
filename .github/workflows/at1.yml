@@ -12,16 +12,26 @@ jobs:
           repository: at-ul/vault-workflows
           ref: main
           token: ${{ secrets.GH_PAT }}
+          path: vault
       - name: run
         run: |
-           ls -ltra ${GITHUB_WORKSPACE}
-           cat ${GITHUB_WORKSPACE}/README.md
+           ls -ltra ${GITHUB_WORKSPACE}/vault
+           cat ${GITHUB_WORKSPACE}/vault/README.md
+      - name: upload-artifact
+        uses: actions/upload-artifact@v3
+        with:
+          path: vault
 
 
   list-val2:
     runs-on: ubuntu-24.04
     steps:
+
+      - name: download-artifact
+        uses: actions/download-artifact@v3
+        with:
+          path: vault
       - name: run
         run: |
-           ls -ltra ${GITHUB_WORKSPACE}
-           cat ${GITHUB_WORKSPACE}/README.md
+           ls -ltra ${GITHUB_WORKSPACE}/vault
+           cat ${GITHUB_WORKSPACE}/vault/README.md
