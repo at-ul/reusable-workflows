@@ -11,11 +11,11 @@ jobs:
     steps:
       - id: step1
         run: |
-          export a="hello"
+          export a=hello
           echo $a >> "$GITHUB_OUTPUT"
       - id: step2
         run: |
-          export b="world"
+          export b=world
           echo $b >> "$GITHUB_OUTPUT"
   job2:
     runs-on: ubuntu-latest
