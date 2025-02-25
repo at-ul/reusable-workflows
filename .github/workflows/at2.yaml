@@ -10,9 +10,13 @@ jobs:
       output2: ${{ steps.step2.outputs.b }}
     steps:
       - id: step1
-        run: echo "a=hello" >> "$GITHUB_OUTPUT"
+        run: |
+          export a="hello"
+          echo $a >> "$GITHUB_OUTPUT"
       - id: step2
-        run: echo "b=world" >> "$GITHUB_OUTPUT"
+        run: |
+          export b="world"
+          echo $b >> "$GITHUB_OUTPUT"
   job2:
     runs-on: ubuntu-latest
     needs: job1
