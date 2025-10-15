@@ -52,3 +52,4 @@ jobs:
           echo $key_id
           aws iam delete-access-key --access-key-id=$key_id --user-name "${{ inputs.USER_NAME }}"
           rm output.txt
+
