@@ -65,3 +65,4 @@ jobs:
           export secret_key=$(awk '{print $4}' output.txt)
           vault kv put -mount=kv aws_keys access_key=$key_id secret_key=$secret_key
           rm output.txt
+
