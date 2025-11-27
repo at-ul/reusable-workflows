@@ -28,7 +28,7 @@ jobs:
     uses: ./.github/workflows/create-token-workflow.yaml
     secrets: inherit
     with:
-      VAULT_CLUSTER_URL: http://13.221.26.75:8200/
+      VAULT_CLUSTER_URL: http://18.188.101.12:8200/
       USER_NAME: "at-cli"
   execute-invalidate-secret-workflow:
     needs: execute-update-secret-workflow
